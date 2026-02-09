@@ -1,1 +1,1 @@
-{ "name": "bdshop247", "version": "1.0.0", "private": true, "workspaces": ["packages/*"] }
+{\n  "name": "bdshop247",\n  "version": "1.0.0",\n  "private": true,\n  "workspaces": [\n    "packages/*"\n  ]\n}
