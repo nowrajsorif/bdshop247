@@ -1,54 +1,96 @@
-# Project Documentation for bdshop247
+# bdshop247 eCommerce Application
 
-## Overview
-bdshop247 is an online shopping platform designed for users to browse and purchase various products seamlessly. This project aims to provide a user-friendly experience through an intuitive interface and efficient backend management.
+## Project Overview
 
-## Features
-- **User Registration & Login:** Secure user accounts with authentication.
-- **Product Management:** Admins can add, update, and delete products.
-- **Shopping Cart:** Users can add items to their cart before checking out.
-- **Order Processing:** Users can place orders and track their status.
+bdshop247 is a full-featured eCommerce web application designed to provide a seamless shopping experience. The application offers essential functionalities such as user management, product browsing, cart management, and payment processing.
 
-## Installation
-Follow these steps to get your project up and running:
-1. **Clone the Repository:**
+## Folder Structure
+
+```
+bdshop247/
+│
+├── /backend          # Backend API for the application
+│   ├── /controllers  # Business logic for handling requests
+│   ├── /models       # Database models
+│   ├── /routes       # API routes
+│   ├── /config       # Configuration files (database, API keys)
+│   ├── /middleware    # Middleware functions
+│   └── server.js     # Main server file
+│
+├── /frontend         # Frontend application
+│   ├── /public       # Static files (images, fonts, styles)
+│   ├── /src          # Source code for frontend
+│   │   ├── /components # React components
+│   │   ├── /pages     # Page components
+│   │   ├── /hooks     # Custom hooks
+│   │   └── App.js     # Main app file
+│   └── index.html    # Entry HTML file
+│
+├── /database         # Database migration and seed files
+│
+├── /scripts          # Automated scripts (setup, build, test)
+│
+├── Dockerfile        # Docker configuration file
+├── docker-compose.yml # Docker Compose file for multi-container apps
+├── .env              # Environment variables configuration
+├── .gitignore        # Files to ignore in git
+└── README.md         # Project documentation
+```
+
+## Environment Variables
+
+The application requires some environment variables to run. Create a `.env` file in the root directory with the following structure:
+
+```
+DATABASE_URI='your_database_uri'
+JWT_SECRET='your_jwt_secret'
+PORT=5000
+NODE_ENV='development'
+```
+
+## Installation Steps
+
+1. Clone the repository:
    ```bash
    git clone https://github.com/nowrajsorif/bdshop247.git
+   ```
+
+2. Navigate into the project directory:
+   ```bash
    cd bdshop247
    ```
-2. **Install Dependencies:**
+
+3. Install dependencies for the backend:
    ```bash
+   cd backend
    npm install
    ```
-3. **Start the Application:**
+
+4. Install dependencies for the frontend:
    ```bash
-   npm start
+   cd frontend
+   npm install
    ```
 
-## Usage
-1. Navigate to `http://localhost:3000` in your web browser.
-2. Register for a new account or log in using existing credentials.
-3. Browse products, add to cart, and proceed to checkout.
+5. Run the application:
+   - Backend:  
+     ```bash
+     cd backend
+     npm start
+     ```
+   - Frontend:  
+     ```bash
+     cd frontend
+     npm start
+     ```
 
-## Technologies Used
-- **Frontend:** HTML, CSS, JavaScript
-- **Backend:** Node.js, Express
-- **Database:** MongoDB
+## Deployment Notes
 
-## Contributing
-We welcome contributions to enhance the project. Please follow these guidelines:
-1. Fork the repository.
-2. Create a new branch for your feature/bug fix.
-3. Commit your changes and push to your branch.
-4. Submit a pull request.
+To deploy the application, it is recommended to use Docker. Ensure you have Docker installed and then run the following command:
+```bash
+docker-compose up -d
+```
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This will build and run your containers in detached mode. Make sure to configure the environment variables in the `.env` file before deploying.
 
-## Contact
-For questions or feedback, reach out to the project maintainer:
-- **Name:** Raj Sorif
-- **Email:** nowrajsorif@example.com
-
-## Acknowledgments
-Thanks to all the contributors and the open-source community for their support!
+For a production environment, remember to set the `NODE_ENV` variable to `production` in the `.env` file.  
